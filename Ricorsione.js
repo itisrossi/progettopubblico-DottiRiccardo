@@ -49,6 +49,21 @@ function quickSort(numeri,inizio,fine) {
     }
 }
 
+function partition(numeri,inizio,fine) {
+    let pivot = numeri[fine];
+    let i = (inizio - 1);
+ 
+    for (let j = inizio; j <= fine - 1; j++) {
+ 
+        // If current element is smaller than the pivot
+        if (numeri[j] < pivot) {
+            i++;
+            scambia(numeri, i, j);
+        }
+    }
+    scambia(numeri, i + 1, fine);
+    return (i + 1);
+}
 
 for(let i=0;i<numeri.length;i++){
     console.log(numeri[i]);
