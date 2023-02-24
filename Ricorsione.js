@@ -1,3 +1,5 @@
+// selectionSort
+
 let numeri = [9,8,7,6,5,4,3,2,1];
 let inizio = 0;
 let fine = numeri.length;
@@ -14,8 +16,6 @@ function selectionSort(numeri,inizio,fine){
         selectionSort(numeri,inizio+1,fine);
     }
 }
-
-
 
 function posizioneMinimo(numeri,inizio,fine){
     if(inizio === fine)
@@ -37,6 +37,13 @@ function scambia(numeri,inizio,posMinimo){
 }
 
 selectionSort(numeri,0,numeri.length-1);
+console.log(numeri);
+
+//quickSort
+
+numeri = [9,8,7,6,5,4,3,2,1];
+inizio = 0;
+fine = numeri.length;
 
 function quickSort(numeri,inizio,fine) {
     if(inizio===fine)
@@ -65,6 +72,25 @@ function partition(numeri,inizio,fine) {
     return (i + 1);
 }
 
-for(let i=0;i<numeri.length;i++){
-    console.log(numeri[i]);
+quickSort(numeri,inizio,fine);
+console.log(numeri);
+
+// mergeSort
+
+numeri = [9,8,7,6,5,4,3,2,1];
+inizio = 0;
+fine = numeri.length;
+
+function mergeSort(numeri, inizio, fine) {
+    let metà = (end+start)/2;
+    if (start < end) {
+        mergeSort(numeri, inizio, metà);
+        mergeSort(inizio, metà+1, fine);
+        merge(numeri, start, fine);
+    } else {
+        return;
+    }
 }
+
+mergeSort(numeri,inizio,fine);
+console.log(numeri);
