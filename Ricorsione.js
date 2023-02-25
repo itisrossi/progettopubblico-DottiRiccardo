@@ -49,8 +49,8 @@ function quickSort(numeri,inizio,fine) {
     if(inizio===fine)
         return;
     else{
-        letpivot=numeri[inizio];
-        letposPivot=partition(numeri,inizio,fine);
+        let pivot=numeri[inizio];
+        let posPivot=partition(numeri,inizio,fine);
         quickSort(numeri,inizio,posPivot-1);
         quickSort(numeri,posPivot+1,fine);
     }
