@@ -2,7 +2,7 @@
 
 let numeri = [9,8,7,6,5,4,3,2,1];
 let inizio = 0;
-let fine = numeri.length;
+let fine = numeri.length - 1;
 
 selectionSort(numeri,inizio,fine);
 
@@ -29,11 +29,10 @@ function posizioneMinimo(numeri,inizio,fine){
     }
 }
 
-function scambia(numeri,inizio,posMinimo){
-    let tmp=numeri[posMinimo];
-    numeri[posMinimo]=numeri[inizio];
-    numeri[inizio]=tmp;
-
+function scambia(numeri,i,j){
+    let tmp=numeri[i];
+    numeri[i]=numeri[j];
+    numeri[j]=tmp;
 }
 
 selectionSort(numeri,0,numeri.length-1);
@@ -43,16 +42,15 @@ console.log(numeri);
 
 numeri = [9,8,7,6,5,4,3,2,1];
 inizio = 0;
-fine = numeri.length;
+fine = numeri.length - 1;
 
 function quickSort(numeri,inizio,fine) {
-    if(inizio===fine)
-        return;
-    else{
-        let pivot=numeri[inizio];
+    if(inizio < fine) {
         let posPivot=partition(numeri,inizio,fine);
         quickSort(numeri,inizio,posPivot-1);
         quickSort(numeri,posPivot+1,fine);
+    } else {
+        return;
     }
 }
 
@@ -79,7 +77,7 @@ console.log(numeri);
 
 numeri = [9,8,7,6,5,4,3,2,1];
 inizio = 0;
-fine = numeri.length;
+fine = numeri.length - 1;
 
 function mergeSort(numeri, inizio, fine) {
     let metà = (end+start)/2;
