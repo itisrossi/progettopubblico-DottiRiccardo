@@ -95,3 +95,19 @@ function Stampa(n, s) {
 }
 
 console.log(ris);
+
+// importo in base agli anni
+
+console.log("Importo in base agli anni");
+
+let importo = 1000;
+let anni = 5;
+interesse(importo, anni);
+
+function interesse(importo, anni) {
+    if (anni === 0) {
+        return importo;
+    } else {
+        interesse(importo + (importo * 5) / 100, anni - 1);
+    }
+}
