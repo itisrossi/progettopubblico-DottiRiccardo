@@ -77,3 +77,21 @@ function SommaRicorsiva (a, b) {
         ris = a + SommaRicorsiva (a+1, b);
     }
 }
+
+// n - e n +
+
+console.log("Stampa - e +")
+
+let n = 3;
+let s = "";
+let ris = Stampa(n, s);
+
+function Stampa(n, s) {
+    if (n === 0) {
+        s = " ";
+    } else {
+        return s = "-" + Stampa(n-1) + "+";
+    }
+}
+
+console.log(ris);
