@@ -1,7 +1,12 @@
 console.log("Ricerca Ricorsiva");
-let v = [1,6,23,53,123,323,3,6,7,21];
+
+let v = [];
+let x = v;
 let e = 123;
 let inizio = 0;
+for (let i = 0; i < 10; i++) {
+    v[i] = Math.floor(Math.random() * 10);    
+}
 ricercaRicorsiva(v, inizio, e);
 
 function ricercaRicorsiva (v, inizio, e) {
@@ -20,21 +25,36 @@ function ricercaRicorsiva (v, inizio, e) {
 
 console.log("Ricerca Binaria");
 
-v = [1,6,23,53,123,323,3,6,7,21];
-e = 20;
+v = x;
 inizio = 0;
+e = 123;
 fine = v.length - 1;
 ricercaBinaria(v, inizio, fine, e);
 
+// function ricercaBinaria(v, inizio, fine, e) {
+//     let metà = Math.trunc((inizio+fine)/2);
+//     if (inizio === fine) {
+//         console.log(-1);
+//     } else {
+//         if (e == v[metà]) {
+//             console.log(metà + 1);
+//         } else if (e > v[metà]) {
+//             console.log(ricercaBinaria(v, metà, v.length, e));
+//         } else {
+//             console.log(ricercaBinaria(v, inizio, metà - 1, e));
+//         }
+//     }
+// }
+
 function ricercaBinaria(v, inizio, fine, e) {
     let metà = Math.trunc((inizio+fine)/2);
-    if (metà == 1) {
-        console.log(-1);
+    if (e == v[metà]) {
+        console.log(metà + 1);
     } else {
-        if (e == v[metà]) {
-            console.log(metà + 1);
-        } else if (e > v[metà]) {
-            console.log(ricercaBinaria(v, metà, fine, e));
+        if ((metà == inizio) || (metà == fine))
+            return console.log(-1);
+        if (e > v[metà]) {
+            console.log(ricercaBinaria(v, metà, v.length, e));
         } else {
             console.log(ricercaBinaria(v, inizio, metà - 1, e));
         }
