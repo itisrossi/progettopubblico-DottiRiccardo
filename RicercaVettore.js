@@ -33,7 +33,7 @@ ricercaBinaria(v, inizio, fine, e);
 
 // function ricercaBinaria(v, inizio, fine, e) {
 //     let metà = Math.trunc((inizio+fine)/2);
-//     if (inizio === fine) {
+//     if (inizio > fine) {
 //         console.log(-1);
 //     } else {
 //         if (e == v[metà]) {
@@ -49,14 +49,31 @@ ricercaBinaria(v, inizio, fine, e);
 function ricercaBinaria(v, inizio, fine, e) {
     let metà = Math.trunc((inizio+fine)/2);
     if (e == v[metà]) {
-        console.log(metà + 1);
+        return console.log(metà + 1);
     } else {
         if ((metà == inizio) || (metà == fine))
             return console.log(-1);
         if (e > v[metà]) {
-            console.log(ricercaBinaria(v, metà, v.length, e));
+            ricercaBinaria(v, metà, fine, e);
         } else {
-            console.log(ricercaBinaria(v, inizio, metà - 1, e));
+            ricercaBinaria(v, inizio, metà - 1, e);
         }
+    }
+}
+
+// somma tra i numeri tra a e b compresi
+
+console.log("Somma Ricorsiva");
+
+let a = 5;
+let b = 6;
+SommaRicorsiva(a,b);
+
+function SommaRicorsiva (a, b) {
+    let ris = 0;
+    if (a === b) {
+        return console.log(a);
+    } else {
+        ris = a + SommaRicorsiva (a+1, b);
     }
 }
