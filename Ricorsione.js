@@ -3,10 +3,12 @@ let numeri = [9,8,7,6,5,4,3,2,1];
 let inizio = 0;
 let fine = numeri.length - 1;
 
-let dAstart = new Date();
+let dAstart = Date.now();
+console.log(dAstart);
 selectionSort(numeri,inizio,fine);
-let dAfine = new Date();
-let durataA = dAstart.getTime() - dAfine.getTime();
+let dAfine = Date.now();
+console.log(dAfine);
+let durataA = dAfine - dAstart;
 console.log(durataA);
 
 function selectionSort(numeri,inizio,fine){
@@ -73,10 +75,12 @@ function partition(numeri,inizio,fine) {
     return (i + 1);
 }
 
-let dBstart = new Date();
+let dBstart = Date.now();
+console.log(dBstart);
 quickSort(numeri,inizio,fine);
-let dBfine = new Date();
-let durataB = dBstart.getTime() - dBfine.getTime();
+let dBfine = Date.now();
+console.log(dBfine);
+let durataB = dBfine - dBstart;
 console.log(durataB);
 console.log(numeri);
 
@@ -87,8 +91,8 @@ inizio = 0;
 fine = numeri.length - 1;
 
 function mergeSort(numeri, inizio, fine) {
-    let metà = (end+start)/2;
-    if (start < end) {
+    let metà = (fine+inizio)/2;
+    if (inizio < fine) {
         mergeSort(numeri, inizio, metà);
         mergeSort(inizio, metà+1, fine);
         merge(numeri, start, fine);
