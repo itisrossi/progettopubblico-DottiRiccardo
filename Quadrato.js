@@ -1,4 +1,4 @@
-let n = 100;
+let n = prompt("Dimmi un numero");
 
 function qnumeri(n) {
     let start = Date.now();
